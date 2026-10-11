@@ -1,7 +1,7 @@
 const developer = "Sanjeev";
 
 function greetDeveloper(name) {
-    return `Hello, ${name}! Welcome to Git and GitHub.`;
+    return `Hello, ${name}! Welcome to our development team.`;
 }
 
 function getRole() {
