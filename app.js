@@ -1,10 +1,20 @@
-const developer = "Sanjeev";
+const express = require("express");
 
-function greetDeveloper(name) {
-    return `Hello, ${name}! Welcome to our development team.`;
-}
-function getRole() {
-    return "this is my first time using git and github111111111111111111111111111111111111111111111111111";
-}
-console.log(greetDeveloper(developer));
-console.log("Role:", getRole());
+const app = express();
+const PORT = 3000;
+
+app.use(express.json());
+
+const taskRoutes = require("./modules/tasks/routes/task.routes");
+
+app.get("/", (req, res) => {
+    res.json({
+        message: "Welcome to the Task Management API"
+    });
+});
+
+app.use("/api/tasks", taskRoutes);
+
+app.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}`);
+});
